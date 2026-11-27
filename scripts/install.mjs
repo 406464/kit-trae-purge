@@ -27,7 +27,7 @@ async function main() {
   const dryRun = Boolean(args['dry-run']);
   const assumeYes = Boolean(args.yes);
 
-  head('TRAE 破甲套件 · 安装');
+  head('TRAE 规则注入套件 · 安装');
 
   const homes = args['trae-home'] ? [String(args['trae-home'])] : listTraeHomes();
   if (!homes.length) {

@@ -28,7 +28,7 @@ function checkPort(port) {
 
 async function main() {
   const args = parseArgs();
-  head('TRAE 破甲套件 · 环境体检');
+  head('TRAE 规则注入套件 · 环境体检');
 
   const results = [];
   const add = (level, name, detail, advice = '') => results.push({ level, name, detail, advice });

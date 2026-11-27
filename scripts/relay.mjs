@@ -247,7 +247,7 @@ const server = http.createServer(async (req, res) => {
   }
 });
 
-head('TRAE 破甲套件 · relay');
+head('TRAE 规则注入套件 · relay');
 if (!UPSTREAM) {
   bad('缺少上游地址。用 --upstream https://your-endpoint/v1 或设环境变量 UPSTREAM_BASE_URL。');
   process.exit(1);

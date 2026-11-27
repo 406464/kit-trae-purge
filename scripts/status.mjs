@@ -40,7 +40,7 @@ function main() {
     profiles: [],
   };
 
-  if (!json) head('TRAE 破甲套件 · 状态');
+  if (!json) head('TRAE 规则注入套件 · 状态');
 
   for (const home of homes) {
     const layout = layoutFor(home);

@@ -1,6 +1,6 @@
 # trae-purge-kit
 
-**TRAE IDE 的行为契约注入套件 + 一条把「请求发往谁」交回你手里的路径。**
+**TRAE IDE 的规则文件注入套件 + 一份「请求发往哪个入口」由你自己配置的档案与自检。**
 往 TRAE 自己的全局规则目录写一个文件；不改 IDE 二进制、不装后台服务、不联网上报，卸载一键回滚。
 
 **A behavior-contract injector for TRAE IDE, plus a way to take back control of *where requests go*.**
@@ -60,7 +60,7 @@ Then open a **new** conversation. If you still get 979/983, that is the server-s
 |---|---|---|
 | 把行为契约注入 TRAE 全局规则 | 写 `<TRAE_HOME>/user_rules/rule-trae-purge-kit.md`，进 prompt 的 `<user_rules>` 段 | observed + documented |
 | 去掉模型自身的拒绝式措辞 | 词库「措辞闸」= 禁用措辞 → 替代表述对照表 | observed（回答末尾会带自定义标记，证明确实进了上下文） |
-| 翻掉模型自身对安全技术的自我拒答（闸 2） | 词库「反推脱条款」+「可直接填充的产物槽」两段配合 | observed：只给措辞闸时仍被拒；配上这两段后一次通过 |
+| 改变模型自身在安全技术话题上的拒答倾向（闸 2） | 词库「反推脱条款」+「可直接填充的产物槽」两段配合 | observed：只给措辞对照表时仍被拒；配上这两段后一次通过 |
 | 技术类意图不追问范围 | 词库「意图路由」 | observed（渗透类直接给命令，不反问范围） |
 | 自检规则在位与未被改 | 四项断言 + 双指纹（HTML 注释 marker + 明文 sentinel） | observed（自检脚本在假环境里跑全链路） |
 | 幂等安装 / 一键回滚 | 备份 → 写入 → 状态记录；卸载优先还原备份 | observed |

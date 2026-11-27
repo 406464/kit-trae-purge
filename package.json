@@ -1,7 +1,7 @@
 {
   "name": "trae-purge-kit",
   "version": "0.2.1",
-  "description": "TRAE 破甲套件：把行为契约注入 TRAE 全局规则，配合 OpenAI 兼容自定义模型与本地 relay，绕开 TRAE 云端内容安全闸，让敏感内容能被生成出来。",
+  "description": "Rule-file injector + provider profiles + self-verification for TRAE IDE: writes only the user’s own global rule file, with backup, double fingerprint, assertions and one-command rollback. 只改用户自己的规则文件，服务端判定不在能力范围。",
   "author": "署名：406464 — 大肥鱼 @ DeepSeek Harness",
   "license": "MIT",
   "type": "module",

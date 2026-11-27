@@ -89,7 +89,9 @@ export function scrub(pkgDir = PKG_DIR, extraDeny = []) {
     if (rel.startsWith('dist' + path.sep)) continue; // 打包产物本身由 pack 控制
 
     if (e.kind === 'dir') {
-      if (BAD_DIR_NAMES.has(e.name)) issues.push({ level: 'FAIL', id: 'P1-dir', rel, note: `不应分发的目录：${e.name}` });
+      // 包根本身的 .git / node_modules 不被 pack 复制（collectFiles 已跳过），属本地开发痕迹；
+      // 深层出现的才是「依赖或版本库混进分发件」的真问题 —— 照拦。
+      if (BAD_DIR_NAMES.has(e.name) && rel !== e.name) issues.push({ level: 'FAIL', id: 'P1-dir', rel, note: `不应分发的目录：${e.name}` });
       continue;
     }
 

@@ -40,7 +40,7 @@ function main() {
     return results.some((r) => r.verdict === 'FAIL') ? 1 : 0;
   }
 
-  head('TRAE 破甲套件 · 自检');
+  head('TRAE 规则注入套件 · 自检');
   info(`词库：${words.mode}，${words.bytes} B，指纹 ${words.hash.slice(0, 12)}`);
 
   let anyFail = false;

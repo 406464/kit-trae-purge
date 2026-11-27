@@ -72,7 +72,7 @@ function main() {
   const args = parseArgs();
   const verbose = Boolean(args.verbose);
 
-  head('TRAE 破甲套件 · 自检');
+  head('TRAE 规则注入套件 · 自检');
 
   /* S1 结构 */
   for (const f of REQUIRED_FILES) {

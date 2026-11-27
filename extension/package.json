@@ -1,7 +1,7 @@
 {
   "name": "trae-purge-kit",
-  "displayName": "TRAE 破甲套件",
-  "description": "把行为契约注入 TRAE 全局规则，让助手按指定形态输出；配合 OpenAI 兼容自定义模型绕开 TRAE 云端内容安全闸。只改用户自己的规则文件，不改 IDE 二进制。",
+  "displayName": "TRAE 规则注入套件",
+  "description": "把行为契约写进 TRAE 自己的全局规则文件，让助手按指定形态输出；服务端内容判定不在能力范围，需要换入口时用档案与文档指引。只改用户自己的规则文件，不改 IDE 二进制。",
   "version": "0.2.1",
   "publisher": "purge-kit",
   "license": "MIT",
@@ -27,27 +27,27 @@
     "commands": [
       {
         "command": "trae-purge-kit.install",
-        "title": "TRAE 破甲：安装全局规则"
+        "title": "TRAE 规则：安装全局规则"
       },
       {
         "command": "trae-purge-kit.uninstall",
-        "title": "TRAE 破甲：卸载并还原"
+        "title": "TRAE 规则：卸载并还原"
       },
       {
         "command": "trae-purge-kit.status",
-        "title": "TRAE 破甲：查看状态"
+        "title": "TRAE 规则：查看状态"
       },
       {
         "command": "trae-purge-kit.verify",
-        "title": "TRAE 破甲：自检"
+        "title": "TRAE 规则：自检"
       },
       {
         "command": "trae-purge-kit.openRules",
-        "title": "TRAE 破甲：打开规则文件"
+        "title": "TRAE 规则：打开规则文件"
       }
     ],
     "configuration": {
-      "title": "TRAE 破甲套件",
+      "title": "TRAE 规则注入套件",
       "properties": {
         "traePurgeKit.enable": {
           "type": "boolean",

@@ -1,5 +1,5 @@
 /**
- * TRAE 破甲套件 —— VS Code / TRAE 扩展。
+ * TRAE 规则注入套件 —— VS Code / TRAE 扩展。
  *
  * 它只做一件事：把随包附带的行为契约写进 TRAE 的全局规则目录，
  * 让助手按指定形态输出。不改 IDE 二进制，不改其它规则，不联网。
@@ -185,7 +185,7 @@ function install(words) {
   const body = renderBody(words);
   const prev = readIfExists(lay.rulePath);
   if (prev === body) {
-    vscode.window.showInformationMessage('TRAE 破甲：规则已是最新，无需改动。');
+    vscode.window.showInformationMessage('TRAE 规则：规则已是最新，无需改动。');
     out('· 规则已是最新');
     return;
   }
@@ -256,14 +256,14 @@ function install(words) {
   }
 
   out(`✓ 已写入 ${lay.rulePath}`);
-  vscode.window.showInformationMessage('TRAE 破甲：规则已安装。请完全重启 TRAE 并开新对话。');
+  vscode.window.showInformationMessage('TRAE 规则：规则已安装。请完全重启 TRAE 并开新对话。');
 }
 
 function uninstall() {
   const { home } = locateHome();
   const lay = layout(home);
   if (readIfExists(lay.rulePath) === null) {
-    vscode.window.showInformationMessage('TRAE 破甲：未安装，无需卸载。');
+    vscode.window.showInformationMessage('TRAE 规则：未安装，无需卸载。');
     out('· 未安装');
     return;
   }
@@ -299,7 +299,7 @@ function uninstall() {
     out(`✗ 回滚失败：${e.message}`);
     return;
   }
-  vscode.window.showInformationMessage('TRAE 破甲：已回滚。完全重启 TRAE 后生效。');
+  vscode.window.showInformationMessage('TRAE 规则：已回滚。完全重启 TRAE 后生效。');
 }
 
 function status(words) {
@@ -310,7 +310,7 @@ function status(words) {
   const content = readIfExists(lay.rulePath);
   if (content === null) {
     out('状态：未安装');
-    vscode.window.showInformationMessage('TRAE 破甲：尚未安装。');
+    vscode.window.showInformationMessage('TRAE 规则：尚未安装。');
     return;
   }
   const p = parseBody(content);
@@ -348,16 +348,16 @@ function verify(words) {
   }
   out('');
   if (fail) {
-    out('未通过：跑「TRAE 破甲：安装全局规则」重新安装。');
-    vscode.window.showWarningMessage(`TRAE 破甲自检：${fail} 项未通过。`);
+    out('未通过：跑「TRAE 规则：安装全局规则」重新安装。');
+    vscode.window.showWarningMessage(`TRAE 规则注入自检：${fail} 项未通过。`);
   } else {
     out('全部通过。');
-    vscode.window.showInformationMessage('TRAE 破甲自检通过。');
+    vscode.window.showInformationMessage('TRAE 规则注入自检通过。');
   }
 }
 
 function activate(context) {
-  channel = vscode.window.createOutputChannel('TRAE 破甲套件');
+  channel = vscode.window.createOutputChannel('TRAE 规则注入套件');
   context.subscriptions.push(channel);
 
   context.subscriptions.push(
@@ -413,7 +413,7 @@ function activate(context) {
   if (cfg.get('enable')) {
     // 只提示，不自动写盘——自动写用户目录是不可逆动作，不该悄悄做。
     vscode.window
-      .showInformationMessage('TRAE 破甲套件已就绪。命令面板里用「TRAE 破甲：安装全局规则」。', '安装')
+      .showInformationMessage('TRAE 规则注入套件已就绪。命令面板里用「TRAE 规则：安装全局规则」。', '安装')
       .then((choice) => {
         if (choice === '安装') vscode.commands.executeCommand('trae-purge-kit.install');
       });
