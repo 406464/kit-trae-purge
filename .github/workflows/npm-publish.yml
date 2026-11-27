@@ -1,0 +1,28 @@
+name: npm-publish
+
+# 可信发布（trusted publishing）：CI 用 GitHub 的 OIDC 身份向 npm 证明「这次发布来自这个仓库」，
+# 不需要长期 token，也不需要绕过账号的两步验证。
+# 每个包在 npm 网页上配一次：Packages → 该包 → Settings → Trusted publisher → GitHub
+#   Repository: 406464/kit-trae-purge      Workload/File: npm-publish.yml      Branch/Tag: main（留空=不限）
+# 配好后打 tag（v<版本>）或在本页手动 Run 一次即可发布。
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+  id-token: write   # 可信发布必需
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      # 不配 registry-url / NODE_AUTH_TOKEN：留空 token 会把 npm 顶回 401，OIDC 走的是 id-token
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node -e "const j=require('./package.json');console.log('发布:',j.name+'@'+j.version)"
+      - run: npm publish --access public --provenance
