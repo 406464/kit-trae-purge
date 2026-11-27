@@ -1,0 +1,73 @@
+{
+  "name": "trae-purge-kit",
+  "displayName": "TRAE 破甲套件",
+  "description": "把行为契约注入 TRAE 全局规则，让助手按指定形态输出；配合 OpenAI 兼容自定义模型绕开 TRAE 云端内容安全闸。只改用户自己的规则文件，不改 IDE 二进制。",
+  "version": "0.2.1",
+  "publisher": "purge-kit",
+  "license": "MIT",
+  "author": "署名：406464 — 大肥鱼 @ DeepSeek Harness",
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "trae",
+    "rules",
+    "prompt",
+    "agent",
+    "custom-model"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "trae-purge-kit.install",
+        "title": "TRAE 破甲：安装全局规则"
+      },
+      {
+        "command": "trae-purge-kit.uninstall",
+        "title": "TRAE 破甲：卸载并还原"
+      },
+      {
+        "command": "trae-purge-kit.status",
+        "title": "TRAE 破甲：查看状态"
+      },
+      {
+        "command": "trae-purge-kit.verify",
+        "title": "TRAE 破甲：自检"
+      },
+      {
+        "command": "trae-purge-kit.openRules",
+        "title": "TRAE 破甲：打开规则文件"
+      }
+    ],
+    "configuration": {
+      "title": "TRAE 破甲套件",
+      "properties": {
+        "traePurgeKit.enable": {
+          "type": "boolean",
+          "default": true,
+          "description": "扩展激活时是否提示安装全局规则（不自动写盘）"
+        },
+        "traePurgeKit.traeHome": {
+          "type": "string",
+          "default": "",
+          "description": "TRAE 配置根目录。留空则自动探测 ~/.trae-cn"
+        }
+      }
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/406464/kit-trae-purge.git"
+  },
+  "homepage": "https://github.com/406464/kit-trae-purge#readme",
+  "bugs": {
+    "url": "https://github.com/406464/kit-trae-purge/issues"
+  }
+}

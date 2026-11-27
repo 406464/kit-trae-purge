@@ -1,0 +1,12 @@
+node_modules/
+dist/
+*.log
+*.bak
+*.bak-*
+*.tmp
+.trae-purge-kit/
+relay-certs/
+*.pem
+*.pfx
+.DS_Store
+Thumbs.db

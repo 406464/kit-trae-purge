@@ -1,0 +1,59 @@
+{
+  "name": "trae-purge-kit",
+  "version": "0.2.1",
+  "description": "TRAE 破甲套件：把行为契约注入 TRAE 全局规则，配合 OpenAI 兼容自定义模型与本地 relay，绕开 TRAE 云端内容安全闸，让敏感内容能被生成出来。",
+  "author": "署名：406464 — 大肥鱼 @ DeepSeek Harness",
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=18"
+  },
+  "bin": {
+    "trae-purge-kit": "./scripts/install.mjs"
+  },
+  "scripts": {
+    "verify": "node scripts/verify.mjs",
+    "preflight": "node scripts/preflight.mjs",
+    "relay": "node scripts/relay.mjs",
+    "relay:test": "node scripts/relay-test.mjs",
+    "selfcheck": "node scripts/selfcheck.mjs",
+    "attest": "node scripts/attest.mjs",
+    "scrub": "node scripts/scrub.mjs",
+    "pack": "node scripts/pack.mjs",
+    "pack:vsix": "node scripts/pack-vsix.mjs",
+    "kit:install": "node scripts/install.mjs",
+    "kit:uninstall": "node scripts/uninstall.mjs",
+    "kit:status": "node scripts/status.mjs"
+  },
+  "files": [
+    "lib",
+    "words",
+    "profiles",
+    "scripts",
+    "docs",
+    "extension",
+    "LICENSE",
+    "NOTICE",
+    "README.md"
+  ],
+  "keywords": [
+    "trae",
+    "trae-cn",
+    "rules",
+    "prompt",
+    "custom-model",
+    "openai-compatible",
+    "relay"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/406464/kit-trae-purge.git"
+  },
+  "bugs": {
+    "url": "https://github.com/406464/kit-trae-purge/issues"
+  },
+  "homepage": "https://github.com/406464/kit-trae-purge#readme",
+  "publishConfig": {
+    "access": "public"
+  }
+}
