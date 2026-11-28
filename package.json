@@ -1,7 +1,7 @@
 {
   "name": "trae-purge-kit",
   "version": "0.2.1",
-  "description": "Rule-file injector + provider profiles + self-verification for TRAE IDE: writes only the user’s own global rule file, with backup, double fingerprint, assertions and one-command rollback. 只改用户自己的规则文件，服务端判定不在能力范围。",
+  "description": "Rule-file injection plus provider profiles and load self-check for the TRAE IDE: writes only the user's own global rule file, with backup, double fingerprint, assertions and one-command rollback. Server-side decisions are out of reach.",
   "author": "署名：406464 — 大肥鱼 @ DeepSeek Harness",
   "license": "MIT",
   "type": "module",

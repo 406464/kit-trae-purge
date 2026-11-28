@@ -24,7 +24,7 @@ export const SIGN_LEGACY = ['dsh', '@406464'].join('');
 const CODE_EXT = new Set(['.js', '.mjs', '.cjs', '.ts']);
 // 署名只留在法律与元数据层；README.md 与 docs/*.md 属「介绍」，不留署名
 const DOC_FILES = ['NOTICE', 'LICENSE'];
-const INTRO_FILES = ['README.md', ...(fs.existsSync(path.join(PKG_DIR, 'docs')) ? fs.readdirSync(path.join(PKG_DIR, 'docs')).filter((f) => f.endsWith('.md')).map((f) => `docs/${f}`) : [])];
+const INTRO_FILES = [...fs.readdirSync(PKG_DIR).filter((f) => /^README.*\.md$/.test(f)), ...(fs.existsSync(path.join(PKG_DIR, 'docs')) ? fs.readdirSync(path.join(PKG_DIR, 'docs')).filter((f) => f.endsWith('.md')).map((f) => `docs/${f}`) : [])];
 
 function walk(dir, out = []) {
   let entries = [];
