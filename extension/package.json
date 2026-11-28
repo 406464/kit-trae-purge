@@ -2,7 +2,7 @@
   "name": "trae-purge-kit",
   "displayName": "TRAE 规则注入套件",
   "description": "把行为契约写进 TRAE 自己的全局规则文件，让助手按指定形态输出；服务端内容判定不在能力范围，需要换入口时用档案与文档指引。只改用户自己的规则文件，不改 IDE 二进制。",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "publisher": "purge-kit",
   "license": "MIT",
   "author": "署名：406464 — 大肥鱼 @ DeepSeek Harness",
