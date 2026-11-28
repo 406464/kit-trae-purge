@@ -24,5 +24,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+      # 可信发布要求 npm >= 11.5.2（node 22 自带 npm 10，不升级会 ENEEDAUTH：OIDC 被忽略）
+      - run: npm install -g npm@^11 && npm -v
       - run: node -e "const j=require('./package.json');console.log('发布:',j.name+'@'+j.version)"
       - run: npm publish --access public --provenance
